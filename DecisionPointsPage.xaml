@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DecisionAssistant.DecisionPointsPage"
-             Title="Decision Assistant">
+<ContentPage x:Class="DecisionAssistant.DecisionPointsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:DecisionAssistant.Model"
+    xmlns:views="clr-namespace:DecisionAssistant"
+    Title="Decision Assistant">
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -10,13 +12,47 @@
             VerticalOptions="Start">
 
             <Label
-                Text="What should a decision be made about?"
+                Text=""
                 x:Name="DecisionPoint"
                 SemanticProperties.HeadingLevel="Level2"
                 FontSize="25"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center" />
 
+            <Label
+                Text="Collect decision points"
+                SemanticProperties.HeadingLevel="Level3"
+                FontSize="20"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Entry x:Name="SubmitEntry"
+               Placeholder="Decision point"
+               TextChanged="OnTextChanged" />
+
+            <Button
+                x:Name="AddBtn"
+                Text="Add"
+                Clicked="OnAddClicked"
+                HorizontalOptions="Center" />
+
+            <CollectionView            
+                ItemsSource="{Binding DecisionPoints}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:DecisionPoint">
+                        <VerticalStackLayout Margin="15">
+                            <Entry Text="{Binding Name}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button
+                x:Name="SubmitBtn"
+                Text="Submit"
+                Clicked="OnSubmitClicked"
+                HorizontalOptions="Center" />
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

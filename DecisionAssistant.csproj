@@ -56,6 +56,9 @@
 	  <MauiXaml Update="DecisionMakerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="DecisionPointsAssessments.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="DecisionPointsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
