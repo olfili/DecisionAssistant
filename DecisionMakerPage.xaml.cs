@@ -10,7 +10,7 @@ public partial class DecisionMakerPage : ContentPage
 
     private void OnSubmitClicked(object sender, EventArgs e)
     {
-        App.Current.MainPage = new NavigationPage(new DecisionPointsPage(decisionPoint));
+        App.Current.MainPage = new NavigationPage(new DecisionOptionsPage(decisionPoint));
     }
 
     void OnTextChanged(object sender, TextChangedEventArgs e)
