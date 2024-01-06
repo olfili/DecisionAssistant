@@ -40,11 +40,13 @@
                 ItemsSource="{Binding DecisionOptions}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:DecisionOption">
-                        <TableView Intent="Menu">
+                        <TableView Intent="Data">
                             <TableRoot>
                                 <TableSection>
-                                    <TextCell Text=""
-                      Detail="{Binding Name}" />
+                                    <TextCell 
+                                        Text="{Binding Name}"
+                                        TextColor="#6897bb"
+                                     />
                                 </TableSection>
                             </TableRoot>
                         </TableView>

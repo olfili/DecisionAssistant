@@ -6,7 +6,8 @@ public partial class DecisionMakerPage : ContentPage
 	public DecisionMakerPage()
 	{
 		InitializeComponent();
-	}
+        SubmitBtn.IsVisible = IsSubmitVisible();
+    }
 
     private void OnSubmitClicked(object sender, EventArgs e)
     {
@@ -16,5 +17,11 @@ public partial class DecisionMakerPage : ContentPage
     void OnTextChanged(object sender, TextChangedEventArgs e)
     {
         decisionPoint = e.NewTextValue;
+        SubmitBtn.IsVisible = IsSubmitVisible();
+    }
+
+    bool IsSubmitVisible()
+    {
+        return string.IsNullOrEmpty(decisionPoint) ? false : true;
     }
 }

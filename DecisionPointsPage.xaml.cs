@@ -8,7 +8,7 @@ public partial class DecisionPointsPage : ContentPage
     public ObservableCollection<DecisionPoint> DecisionPoints { get; set; } = new ObservableCollection<DecisionPoint>();
     private string decisionPointName = string.Empty;
     
-	public DecisionPointsPage(string decisionPoint)
+	public DecisionPointsPage(string decisionPoint, List<DecisionOption> decisionOptions)
 	{
 		InitializeComponent();
         BindingContext = this;
@@ -22,7 +22,7 @@ public partial class DecisionPointsPage : ContentPage
 
     private void OnSubmitClicked(object sender, EventArgs e)
     {
-        App.Current.MainPage = new NavigationPage(new DecisionPointsAssessments(DecisionPoints.ToList()));
+       // App.Current.MainPage = new NavigationPage(new DecisionPointsAssessments(DecisionPoints.ToList()));
     }
 
     void OnTextChanged(object sender, TextChangedEventArgs e)

@@ -25,7 +25,7 @@
                 x:Name="SubmitBtn"
                 Text="Submit"
                 Clicked="OnSubmitClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="End" />
 
         </VerticalStackLayout>
     </ScrollView>
