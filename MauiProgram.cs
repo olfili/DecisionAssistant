@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiIcons.Fluent;
+using MauiIcons.SegoeFluent;
+using Microsoft.Extensions.Logging;
 
 namespace DecisionAssistant;
 
@@ -18,7 +20,8 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
-		return builder.Build();
+        builder.UseMauiApp<App>().UseFluentMauiIcons();
+        builder.UseMauiApp<App>().UseSegoeFluentMauiIcons();
+        return builder.Build();
 	}
 }

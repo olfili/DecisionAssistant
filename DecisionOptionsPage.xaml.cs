@@ -1,4 +1,5 @@
 using DecisionAssistant.Model;
+using MauiIcons.Core;
 using System.Collections.ObjectModel;
 
 namespace DecisionAssistant;
@@ -12,17 +13,18 @@ public partial class DecisionOptionsPage : ContentPage
     public DecisionOptionsPage(string decisionPoint)
 	{
 		InitializeComponent();
+        _ = new MauiIcon();
         this.decisionPoint = decisionPoint;
         BindingContext = this;
         DecisionPoint.Text = decisionPoint;
-        SubmitBtn.IsVisible = IsSubmitVisible();
-        AddBtn.IsVisible= IsAddVisible();
+        SubmitBtn.IsEnabled = IsSubmitEnabled();
+        AddBtn.IsEnabled = IsAddEnabled();
     }
 
     private void OnAddClicked(object sender, EventArgs e)
     {
         DecisionOptions.Add(new DecisionOption(decisionOptionName));
-        SubmitBtn.IsVisible = IsSubmitVisible();
+        SubmitBtn.IsEnabled = IsSubmitEnabled();
         decisionOptionName = string.Empty;       
         SubmitEntry.Text = string.Empty;
     }
@@ -32,18 +34,23 @@ public partial class DecisionOptionsPage : ContentPage
         App.Current.MainPage = new NavigationPage(new DecisionPointsPage(this.decisionPoint, DecisionOptions.ToList()));
     }
 
+    private void OnDeleteClicked(object sender, EventArgs e)
+    {
+        DecisionOptions.Remove((DecisionOption)((Button)sender).BindingContext);
+    }
+
     void OnTextChanged(object sender, TextChangedEventArgs e)
     {
         decisionOptionName = e.NewTextValue;
-        AddBtn.IsVisible = IsAddVisible();
+        AddBtn.IsEnabled = IsAddEnabled();
     }
 
-    bool IsSubmitVisible()
+    bool IsSubmitEnabled()
     {
         return DecisionOptions.Count > 1 ? true : false;
     }
 
-    bool IsAddVisible()
+    bool IsAddEnabled()
     {
         return string.IsNullOrEmpty(decisionOptionName) ? false : true;
     }
