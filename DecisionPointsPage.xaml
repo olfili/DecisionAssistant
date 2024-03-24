@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:DecisionAssistant.Model"
     xmlns:views="clr-namespace:DecisionAssistant"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
     Title="Decision Assistant">
     <ScrollView>
         <VerticalStackLayout
@@ -26,23 +27,51 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center" />
 
-            <Entry x:Name="SubmitEntry"
-               Placeholder="Decision point"
-               TextChanged="OnTextChanged" />
+            <Grid 
+                ColumnDefinitions="3*,*">
+                <Entry x:Name="SubmitEntry"
+                   Placeholder="Decision points"
+                   TextChanged="OnTextChanged"
+                   HorizontalOptions="Start"
+                   MinimumWidthRequest="250"
+                   Grid.Column="0"/>
 
-            <Button
-                x:Name="AddBtn"
-                Text="Add"
-                Clicked="OnAddClicked"
-                HorizontalOptions="Center" />
+                <Button
+                    x:Name="AddBtn"
+                    Text="Add"
+                    Clicked="OnAddClicked"
+                    HorizontalOptions="End"
+                    Grid.Column="1"/>
+            </Grid>
 
             <CollectionView            
                 ItemsSource="{Binding DecisionPoints}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:DecisionPoint">
-                        <VerticalStackLayout Margin="15">
-                            <Entry Text="{Binding Name}" />
-                        </VerticalStackLayout>
+                        <TableView Intent="Data">
+                            <TableRoot>
+                                <TableSection>
+                                    <ViewCell>
+                                        <Grid
+                                            RowDefinitions="Auto,Auto"
+                                            ColumnDefinitions="3*,*">
+                                            <Label
+                                                Text="{Binding Name}"
+                                                Grid.Column="0"
+                                                Margin="20,20,0,0"
+                                                HorizontalOptions="Start"/>
+                                            <Button
+                                                x:Name="DeleteBtn"
+                                                Text="{mi:SegoeFluent Icon=Delete}"
+                                                Grid.Column="1"
+                                                HorizontalOptions="End"
+                                                FontSize="Body"
+                                                Clicked="OnDeleteClicked"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </TableSection>
+                            </TableRoot>
+                        </TableView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -51,8 +80,8 @@
                 x:Name="SubmitBtn"
                 Text="Submit"
                 Clicked="OnSubmitClicked"
-                HorizontalOptions="Center"/>
-            
+                HorizontalOptions="End"/>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
