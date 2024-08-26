@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="sub-titel">{{ decision_point }}</h2>
+
+    <h3 class="sub-titel">Collect decision points</h3> 
+
+    <ag-grid-angular
+        style="width: 100%; height: 50%;"
+        class="ag-theme-material"
+        [rowData]="rowData"
+        [columnDefs]="colDefs"
+        [defaultColDef]="defaultColDef"
+        [pinnedTopRowData]="pinnedTopRowData"
+        [getRowStyle]="getRowStyle"
+        (gridReady)="onGridReady($event)"
+        (cellEditingStopped)="onCellEditingStopped($event)"
+        [suppressNoRowsOverlay] = true
+    />
+
+    <button 
+        mat-stroked-button 
+        class="button" 
+        [disabled]="cantGoForward()"
+        (click)="submit()">
+        Forward
+    </button>
+</div>

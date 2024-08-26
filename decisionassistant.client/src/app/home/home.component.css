@@ -1,0 +1,27 @@
+:host {
+    max-width: 1280px;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.titel {
+    color: var(--primary-color);
+    padding-bottom: 10%;
+}
+
+.sub-titel {
+    color: var(--secondary-color);
+}
+
+.button {
+    border-color: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);  
+}

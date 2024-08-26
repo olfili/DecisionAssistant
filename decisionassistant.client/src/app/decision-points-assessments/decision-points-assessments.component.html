@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 class="sub-titel">{{ decision_point }}</h2>
+
+    <h3 class="sub-titel">Give each option a score</h3> 
+
+    <ag-grid-angular
+        style="width: 100%; height: 50%;"
+        class="ag-theme-material"
+        [rowData]="rowData"
+        [columnDefs]="colDefs"
+        [defaultColDef]="defaultColDef"
+        (gridReady)="onGridReady($event)"
+        (cellEditingStopped)="onCellEditingStopped($event)"
+        [suppressNoRowsOverlay] = true
+    />
+
+    <button 
+        mat-stroked-button 
+        class="button" 
+        [disabled]="cantGoForward()"
+        (click)="submit()">
+        Forward
+    </button>
+</div>

@@ -1,0 +1,6 @@
+@DecisionAssistant.Server_HostAddress = http://localhost:5211
+
+GET {{DecisionAssistant.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,39 @@
+.container {
+    max-width: 1280px;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+.sub-titel {
+    color: var(--secondary-color);
+    padding-bottom: 3%;
+}
+
+.button {
+    display: block;
+    border-color: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);  
+}
+
+.input {
+    color: var(--secondary-color) !important;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+    border-bottom-color: var(--secondary-color) !important;
+}
+
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    caret-color: var(--secondary-color) !important;
+    color: var(--primary-color)ed !important;
+}
