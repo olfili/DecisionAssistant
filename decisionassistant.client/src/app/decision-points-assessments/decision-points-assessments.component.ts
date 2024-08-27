@@ -1,10 +1,10 @@
-import { CellEditingStoppedEvent, ColDef, GridReadyEvent, ModuleRegistry, RowClassParams, RowStyle, ValueFormatterParams } from '@ag-grid-community/core';
+import { CellEditingStoppedEvent, ColDef, GridReadyEvent, ModuleRegistry } from '@ag-grid-community/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
+import { DecisionService } from '../decision-service.service';
 import '@ag-grid-community/styles/ag-grid.css';
 import '@ag-grid-community/styles/ag-theme-material.css';
-import { DecisionService } from '../decision-service.service';
 
 interface IRow {
   point?: string;

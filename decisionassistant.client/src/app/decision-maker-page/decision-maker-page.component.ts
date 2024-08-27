@@ -24,6 +24,6 @@ export class DecisionMakerPageComponent implements OnInit {
   }
 
   cantGoForward(): boolean {
-    return this.decision_point.value === null || this.decision_point.value.trim() === '' || this.decision_point.value === undefined;
+    return this.decision_point.value === null || this.decision_point.value === undefined || this.decision_point.value.trim() === '';
   }
 }

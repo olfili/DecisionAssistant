@@ -2,9 +2,9 @@ import { CellEditingStoppedEvent, ColDef, GridReadyEvent, ModuleRegistry, RowCla
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
+import { DecisionService } from '../decision-service.service';
 import '@ag-grid-community/styles/ag-grid.css';
 import '@ag-grid-community/styles/ag-theme-material.css';
-import { DecisionService } from '../decision-service.service';
 
 interface IRow {
   point?: string;
@@ -44,7 +44,7 @@ export class DecisionPointsComponent implements OnInit {
   };
 
   onCellEditingStopped(params: CellEditingStoppedEvent) {
-    if (params.value !== null && params.value !== undefined && params.value !== '')
+    if (params.value !== null && params.value !== undefined && params.value !== '' && this.rowData.find(data => data.point === params.value) === undefined)
     {
       this.rowData = [...this.rowData, this.inputRow];
     }
@@ -68,7 +68,7 @@ export class DecisionPointsComponent implements OnInit {
   }
 
   private createPinnedCellPlaceholder(): string {
-    return 'type the decision point here';
+    return 'type decision point here';
   }
 
   getRowStyle = ({ node }: RowClassParams): RowStyle =>

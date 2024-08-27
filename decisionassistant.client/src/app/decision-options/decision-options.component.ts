@@ -12,11 +12,11 @@ interface IRow {
 
 @Component({
   selector: 'app-decision-options-page',
-  templateUrl: './decision-options-page.component.html',
-  styleUrl: './decision-options-page.component.css'
+  templateUrl: './decision-options.component.html',
+  styleUrl: './decision-options.component.css'
 })
 
-export class DecisionOptionsPageComponent implements OnInit {
+export class DecisionOptionsComponent implements OnInit {
 
   decision_point: string = "";
 
@@ -43,8 +43,8 @@ export class DecisionOptionsPageComponent implements OnInit {
     sortable: false,    
   };
 
-  onCellEditingStopped(params: CellEditingStoppedEvent) {
-    if (params.value !== null && params.value !== undefined && params.value !== '')
+  onCellEditingStopped(params: CellEditingStoppedEvent) {  
+    if (params.value !== null && params.value !== undefined && params.value !== '' && this.rowData.find(data => data.option === params.value) === undefined)
     {
       this.rowData = [...this.rowData, this.inputRow];
     }
@@ -68,7 +68,7 @@ export class DecisionOptionsPageComponent implements OnInit {
   }
 
   private createPinnedCellPlaceholder(): string {
-    return 'type the decision option here';
+    return 'type option here';
   }
 
   getRowStyle = ({ node }: RowClassParams): RowStyle =>
