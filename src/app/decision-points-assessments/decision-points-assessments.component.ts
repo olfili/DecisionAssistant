@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { DecisionService } from '../decision-service.service';
-import '@ag-grid-community/styles/ag-grid.css';
-import '@ag-grid-community/styles/ag-theme-material.css';
 
 interface IRow {
   point?: string;

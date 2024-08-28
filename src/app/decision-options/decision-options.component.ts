@@ -2,8 +2,6 @@ import { CellEditingStoppedEvent, ColDef, GridReadyEvent, ModuleRegistry, RowCla
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
-import '@ag-grid-community/styles/ag-grid.css';
-import '@ag-grid-community/styles/ag-theme-material.css';
 import { DecisionService } from '../decision-service.service';
 
 interface IRow {
