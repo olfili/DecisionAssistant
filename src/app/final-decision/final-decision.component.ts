@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DecisionService } from '../decision-service.service';
 
 interface IAssessment {
@@ -16,6 +17,8 @@ export class FinalDecisionComponent implements OnInit {
   final_decision = '';
   assessments: IAssessment[] = [];
 
+  constructor(private router: Router) { }
+
   ngOnInit(): void {
     DecisionService.decision_options.forEach(option => {
       let assessment = DecisionService.decision_points_assessments.filter(a => a[0] === option);
@@ -24,5 +27,14 @@ export class FinalDecisionComponent implements OnInit {
     });
 
     this.final_decision = this.assessments.filter(a => a.score === Math.max(...this.assessments.map(a => a.score)))[0].option;
+  }
+
+  goHome() {
+    DecisionService.decision_point = '';
+    DecisionService.decision_options = new Array<string>;
+    DecisionService.decision_points = new Array<string>;
+    DecisionService.decision_points_assessments = new Array<[string, string, number]>;
+
+    this.router.navigate(['/home']);
   }
 }
