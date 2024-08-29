@@ -35,7 +35,10 @@ export class DecisionPointsAssessmentsComponent implements OnInit {
   defaultColDef: ColDef = {
     flex: 1,
     editable: true,
-    sortable: false,    
+    sortable: false,
+    suppressMovable: true,
+    resizable: false,
+    singleClickEdit: true,   
   };
 
   onCellEditingStopped(params: CellEditingStoppedEvent) {

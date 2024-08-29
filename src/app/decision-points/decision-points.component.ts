@@ -34,11 +34,14 @@ export class DecisionPointsComponent implements OnInit {
   defaultColDef: ColDef = {
     flex: 1,
     editable: true,
+    suppressMovable: true,
+    resizable: false,
     valueFormatter: (params: ValueFormatterParams): any =>
       this.isEmptyPinnedCell(params)
         ? this.createPinnedCellPlaceholder()
         : undefined,
-    sortable: false,    
+    sortable: false,
+    singleClickEdit: true,    
   };
 
   onCellEditingStopped(params: CellEditingStoppedEvent) {
@@ -77,6 +80,6 @@ export class DecisionPointsComponent implements OnInit {
   }
 
   cantGoForward(): boolean {
-    return DecisionService.decision_points.length === 0;
+    return DecisionService.decision_points.length < 2;
   }
 }

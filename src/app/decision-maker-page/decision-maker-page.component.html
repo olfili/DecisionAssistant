@@ -1,18 +1,16 @@
 <div class="container">
     <h2 class="sub-titel">What should a decision be made about?</h2>
 
-    <div>
-        <mat-form-field>
-            <mat-label class="input">I want to decide ...</mat-label>
-            <textarea
-                matInput
-                [formControl]="decision_point"
-                cdkTextareaAutosize
-                #autosize="cdkTextareaAutosize"
-                cdkAutosizeMinRows="1">
-            </textarea>
-          </mat-form-field>
-    </div>
+    <mat-form-field>
+        <mat-label class="input">I want to decide ...</mat-label>
+        <textarea
+            matInput
+            [formControl]="decision_point"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1">
+        </textarea>
+        </mat-form-field>
     
     <button 
         mat-stroked-button
