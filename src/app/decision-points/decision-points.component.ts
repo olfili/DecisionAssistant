@@ -80,6 +80,6 @@ export class DecisionPointsComponent implements OnInit {
   }
 
   cantGoForward(): boolean {
-    return DecisionService.decision_points.length < 2;
+    return DecisionService.decision_points.length === 0;
   }
 }
