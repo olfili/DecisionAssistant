@@ -24,13 +24,13 @@ export class DecisionPointsAssessmentsComponent implements OnInit {
     ModuleRegistry.registerModules([ClientSideRowModelModule]);
     this.decision_point = DecisionService.decision_point;
     DecisionService.decision_options.forEach(option => {
-      this.colDefs = [...this.colDefs, {field: option, headerName: option, cellEditor: "agNumberCellEditor"}];
+      this.colDefs = [...this.colDefs, {field: option, headerName: option, cellEditor: "agNumberCellEditor", resizable: true}];
     });
   }
 
   rowData: IRow[] = [];
   colDefs: ColDef[] = [
-    { field: "point", headerName: "", editable: false },
+    { field: "point", headerName: "", editable: false, resizable: true },
   ];
   defaultColDef: ColDef = {
     flex: 1,
@@ -38,7 +38,7 @@ export class DecisionPointsAssessmentsComponent implements OnInit {
     sortable: false,
     suppressMovable: true,
     resizable: false,
-    singleClickEdit: true,   
+    singleClickEdit: true,
   };
 
   onCellEditingStopped(params: CellEditingStoppedEvent) {

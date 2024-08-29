@@ -41,7 +41,7 @@ export class DecisionOptionsComponent implements OnInit {
         ? this.createPinnedCellPlaceholder()
         : undefined,
     sortable: false,
-    singleClickEdit: true,  
+    singleClickEdit: true,
   };
 
   onCellEditingStopped(params: CellEditingStoppedEvent) {  
