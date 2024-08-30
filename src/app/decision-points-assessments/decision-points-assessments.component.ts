@@ -24,13 +24,13 @@ export class DecisionPointsAssessmentsComponent implements OnInit {
     ModuleRegistry.registerModules([ClientSideRowModelModule]);
     this.decision_point = DecisionService.decision_point;
     DecisionService.decision_options.forEach(option => {
-      this.colDefs = [...this.colDefs, {field: option, headerName: option, cellEditor: "agNumberCellEditor", resizable: true, minWidth: 100}];
+      this.colDefs = [...this.colDefs, {field: option, headerName: option, cellEditor: "agNumberCellEditor", resizable: true, minWidth: 80}];
     });
   }
 
   rowData: IRow[] = [];
   colDefs: ColDef[] = [
-    { field: "point", headerName: "", editable: false, resizable: true },
+    { field: "point", headerName: "", editable: false, resizable: true, minWidth: 80},
   ];
   defaultColDef: ColDef = {
     flex: 1,
