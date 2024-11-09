@@ -1,15 +1,17 @@
-:host {
-    max-width: 1280px;
+.container {
     height: 100%;
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;  
 }
 
 .titel {
     color: var(--primary-color);
-    padding-bottom: 10%;
+    padding-bottom: 5%;
 }
 
 .sub-titel {
